@@ -5,41 +5,25 @@ declare(strict_types=1);
 /**
  * MediCare Database Connection
  *
- * Local XAMPP:
+ * Railway:
+ *   DB_HOST
+ *   DB_PORT
+ *   DB_NAME
+ *   DB_USER
+ *   DB_PASS
+ *
+ * Local XAMPP fallback:
  *   Host:     127.0.0.1
  *   Database: medicare
  *   User:     root
  *   Password: empty
- *
- * Railway:
- *   Connection details are loaded from environment variables.
  */
 
-$isRailway = getenv('RAILWAY_ENVIRONMENT_NAME') !== false;
-
-if ($isRailway) {
-
-    /*
-     * Railway MySQL connection
-     */
-    $host = getenv('MYSQLHOST') ?: '127.0.0.1';
-    $port = getenv('MYSQLPORT') ?: '3306';
-    $dbname = getenv('MYSQLDATABASE') ?: 'medicare';
-    $username = getenv('MYSQLUSER') ?: 'root';
-    $password = getenv('MYSQLPASSWORD') ?: '';
-
-} else {
-
-    /*
-     * Local XAMPP connection
-     */
-    $host = '127.0.0.1';
-    $port = '3306';
-    $dbname = 'medicare';
-    $username = 'root';
-    $password = '';
-
-}
+$host = getenv('DB_HOST') ?: '127.0.0.1';
+$port = getenv('DB_PORT') ?: '3306';
+$dbname = getenv('DB_NAME') ?: 'medicare';
+$username = getenv('DB_USER') ?: 'root';
+$password = getenv('DB_PASS') ?: '';
 
 $dsn = sprintf(
     'mysql:host=%s;port=%s;dbname=%s;charset=utf8mb4',
