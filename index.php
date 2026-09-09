@@ -404,6 +404,95 @@ declare(strict_types=1);
 
 
         /* =====================================================
+           MOBILE HEADER ACTIONS
+        ===================================================== */
+
+        .mobile-header-actions {
+
+            display:
+                none;
+
+            align-items:
+                center;
+
+            justify-content:
+                flex-end;
+
+            gap:
+                8px;
+
+            flex-shrink:
+                0;
+        }
+
+
+        /* =====================================================
+           MOBILE MENU BUTTON
+        ===================================================== */
+
+        .mobile-menu-btn {
+
+            display:
+                none;
+
+            width:
+                42px;
+
+            height:
+                42px;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius:
+                10px;
+
+            background:
+                transparent;
+
+            color:
+                var(--text-heading);
+
+            font-size:
+                18px;
+
+            cursor:
+                pointer;
+
+            place-items:
+                center;
+
+            flex-shrink:
+                0;
+
+            transition:
+                color .2s ease,
+                background .2s ease,
+                border-color .2s ease,
+                transform .2s ease;
+        }
+
+
+        .mobile-menu-btn:hover {
+
+            color:
+                var(--primary);
+
+            border-color:
+                rgba(
+                    16,
+                    199,
+                    176,
+                    0.30
+                );
+
+            transform:
+                translateY(-1px);
+        }
+
+
+        /* =====================================================
            GLOBAL THEME TRANSITIONS
         ===================================================== */
 
@@ -2304,6 +2393,40 @@ declare(strict_types=1);
 
         @media (max-width: 900px) {
 
+            .mobile-header-actions {
+
+                display:
+                    flex;
+            }
+
+
+            .mobile-menu-btn {
+
+                display:
+                    grid;
+            }
+
+
+            .header-right {
+
+                display:
+                    flex;
+
+                align-items:
+                    center;
+
+                gap:
+                    10px;
+            }
+
+
+            .header-right .btn {
+
+                display:
+                    none;
+            }
+
+
             .team-b2-grid {
 
                 grid-template-columns:
@@ -2314,6 +2437,65 @@ declare(strict_types=1);
                             1fr
                         )
                     );
+            }
+
+
+            .main-nav {
+
+                position:
+                    absolute;
+
+                top:
+                    76px;
+
+                left:
+                    0;
+
+                right:
+                    0;
+
+                padding:
+                    15px 5% 22px;
+
+                flex-direction:
+                    column;
+
+                align-items:
+                    flex-start;
+
+                background:
+                    #031b2d;
+
+                border-bottom:
+                    1px solid
+                    var(--border);
+
+                opacity:
+                    0;
+
+                visibility:
+                    hidden;
+
+                transform:
+                    translateY(-12px);
+
+                transition:
+                    opacity .25s ease,
+                    visibility .25s ease,
+                    transform .25s ease;
+            }
+
+
+            .main-nav.show {
+
+                opacity:
+                    1;
+
+                visibility:
+                    visible;
+
+                transform:
+                    translateY(0);
             }
 
         }
@@ -2356,6 +2538,68 @@ declare(strict_types=1);
 
                 font-size:
                     20px;
+            }
+
+
+            .mobile-header-actions {
+
+                gap:
+                    7px;
+            }
+
+
+            .mobile-menu-btn,
+            .theme-toggle {
+
+                width:
+                    40px;
+
+                height:
+                    40px;
+
+                border-radius:
+                    10px;
+            }
+
+
+            .school-affiliation {
+
+                justify-content:
+                    flex-start;
+
+                gap:
+                    11px;
+
+                padding:
+                    20px 14px;
+
+            }
+
+
+            .school-affiliation-logo {
+
+                width:
+                    42px;
+
+                height:
+                    42px;
+
+            }
+
+
+            .school-affiliation-name {
+
+                font-size:
+                    11px;
+
+            }
+
+
+            .school-affiliation-department {
+
+                font-size:
+                    8px;
+
             }
 
         }
@@ -2462,19 +2706,6 @@ declare(strict_types=1);
         </a>
 
 
-        <button
-            class="mobile-menu-btn"
-            id="mobileMenuBtn"
-            type="button"
-            aria-label="Open menu"
-            aria-expanded="false"
-        >
-
-            <i class="fa-solid fa-bars"></i>
-
-        </button>
-
-
         <nav
             class="main-nav"
             id="mainNav"
@@ -2528,23 +2759,46 @@ declare(strict_types=1);
 
 
             <!-- =================================================
-                 THEME TOGGLE
+                 MOBILE HEADER ACTIONS
             ================================================== -->
 
-            <button
-                type="button"
-                class="theme-toggle"
-                id="themeToggle"
-                aria-label="Switch to light mode"
-                title="Switch to light mode"
-            >
+            <div class="mobile-header-actions">
 
-                <i
-                    class="fa-solid fa-sun"
-                    id="themeToggleIcon"
-                ></i>
 
-            </button>
+                <button
+                    class="mobile-menu-btn"
+                    id="mobileMenuBtn"
+                    type="button"
+                    aria-label="Open menu"
+                    aria-expanded="false"
+                >
+
+                    <i class="fa-solid fa-bars"></i>
+
+                </button>
+
+
+                <!-- =============================================
+                     THEME TOGGLE
+                ============================================== -->
+
+                <button
+                    type="button"
+                    class="theme-toggle"
+                    id="themeToggle"
+                    aria-label="Switch to light mode"
+                    title="Switch to light mode"
+                >
+
+                    <i
+                        class="fa-solid fa-sun"
+                        id="themeToggleIcon"
+                    ></i>
+
+                </button>
+
+
+            </div>
 
 
             <a
@@ -3495,7 +3749,6 @@ declare(strict_types=1);
 
     <div class="school-affiliation-copy">
 
-       
 
         <strong class="school-affiliation-name">
             Southern Delta University
