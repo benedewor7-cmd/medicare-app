@@ -2777,6 +2777,13 @@ button {
     }
 
 
+    .navbar {
+
+        gap:
+            10px;
+    }
+
+
     .header-right
     .phone-link {
 
@@ -2789,6 +2796,35 @@ button {
 
         display:
             none;
+    }
+
+
+    .header-right {
+
+        gap:
+            10px;
+
+        margin-left:
+            auto;
+
+        display:
+            flex;
+
+        align-items:
+            center;
+
+        flex-shrink:
+            0;
+    }
+
+
+    .mobile-menu-btn {
+
+        margin:
+            0;
+
+        flex-shrink:
+            0;
     }
 
 
