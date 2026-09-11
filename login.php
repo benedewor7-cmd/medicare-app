@@ -276,7 +276,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             */
 
                             redirect(
-                                'dashboard.php'
+                                'dashboard'
                             );
 
                             exit;
@@ -2458,7 +2458,7 @@ $csrfToken =
 
             <form
                 method="POST"
-                action="login.php"
+                action=""
                 autocomplete="on"
             >
 
